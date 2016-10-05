@@ -29,6 +29,9 @@ function getErreurs() {
     }
     return $_REQUEST['erreurs'];
 }
+function Startby0($tel) {
+    return substr($tel, 0, 1);
+}
 
 function nbErreurs() {
     return count(getErreurs());
