@@ -65,7 +65,7 @@ switch ($action) {
         $prenomResponsable = $_REQUEST['prenomResponsable'];
 
         if ($action == 'validerCreerEtab') {
-            verifierDonneesEtabC($id, $nom, $adresseRue, $codePostal, $ville, $tel, $nomResponsable);
+            verifierDonneesEtabC($id, $nom, $adresseRue, $codePostal, $ville, $tel, $nomResponsable, $adresseElectronique);
             if (nbErreurs() == 0) {
                 $unEtab = new Etablissement($id, $nom, $adresseRue, $codePostal, $ville, $tel, $adresseElectronique, $type, $civiliteResponsable, $nomResponsable, $prenomResponsable);
                 EtablissementDAO::insert($unEtab);
@@ -83,17 +83,31 @@ switch ($action) {
                 include("vues/GestionEtablissements/vCreerModifierEtablissement.php");
             }
         }
+
         break;
 }
 
 // Fermeture de la connexion au serveur MySql
 Bdd::deconnecter();
 
+function verifierDonneesEtabA($adresseElectronique){
+    if($adresseElectronique!=''){
+        if($adresseElectronique=='%@%'){
+            
+        }
+        Else{
+            ajouterErreur('Le champ email doit être composé du caractére @');
+        }
+    }
+        
+}
 function verifierDonneesEtabC($id, $nom, $adresseRue, $codePostal, $ville, $tel, $nomResponsable) {
     if ($id == "" || $nom == "" || $adresseRue == "" || $codePostal == "" ||
             $ville == "" || $tel == "" || $nomResponsable == "") {
         ajouterErreur('Chaque champ suivi du caractère * est obligatoire');
     }
+   
+    
     if ($id != "") {
         // Si l'id est constitué d'autres caractères que de lettres non accentuées 
         // et de chiffres, une erreur est générée
@@ -125,9 +139,13 @@ function verifierDonneesEtabM($id, $nom, $adresseRue, $codePostal, $ville, $tel,
     if ($codePostal != "" && !estUnCp($codePostal)) {
         ajouterErreur('Le code postal doit comporter 5 chiffres');
     }
-}
+
+    }
+   
+
 
 function estUnCp($codePostal) {
     // Le code postal doit comporter 5 chiffres
     return strlen($codePostal) == 5 && estEntier($codePostal);
 }
+
