@@ -138,5 +138,6 @@ function estUnCp($codePostal) {
     return strlen($codePostal) == 5 && estEntier($codePostal);
 }
 function estNom($nom) {
+    //Le nom doit être composé uniquement de lettres
     return strlen($nom) == estLettres($nom);
 }
