@@ -3,19 +3,17 @@
 /* Style de base pour la page (couleur fond : ocre, couleur texte : noir) */
 .basePage 
 {
-   background-color:greenyellow;
-   color:yellow;
+   background-color:white;
+   color:Black;
    font:11px Arial, Helvetica, sans-serif;
 }
 
 /* Style pour le titre (couleur du texte : rouge) */
 .titre 
 {
-   background-image:url('../images/note-de-musique.jpg.png');
-   
-   background-repeat:no-repeat;
-   background-color:green;
-   color:yellow;
+
+   background-color:#8F8F8F;
+   color:Black;
    font:30px Arial, Helvetica, sans-serif;
    text-align:center;
 }
@@ -30,8 +28,8 @@
 mise en gras et en italique) */
 .texteAccueil
 {
-   background-color:green;
-   color:yellow;       
+   background-color:white;
+   color:black;       
    font:14px Georgia, "Times New Roman", Times, serif;
    font-weight:bold;
    font-style:italic;
@@ -50,10 +48,10 @@ td,tr,div,p
 3px entre la bordure gauche de chaque cellule et le texte */
 table.tabQuadrille td
 {
-   border-bottom:1px solid green;
-   border-right:1px solid green;
-   border-left:1px solid green;
-   border-top:1px green;
+   border-bottom:1px solid black;
+   border-right:1px solid black;
+   border-left:1px solid black;
+   border-top:1px black;
    padding-left:3px;
 } 
 
@@ -62,8 +60,8 @@ de jaune */
 tr.enTeteTabQuad 
 {
    
-   background-color:green;
-   color:yellow;
+   background-color:#8F8F8F;
+   color:black;
    height:21px;
    text-align:center;
 } 
@@ -71,8 +69,8 @@ tr.enTeteTabQuad
 /* 2ème style pour les en-têtes des tableaux quadrillés : fond jaune */
 tr.enTete2TabQuad 
 {
-   background-color:green;
-   color:yellow;
+   background-color:#8F8F8F;
+   color:black;
    text-align:left;
 } 
 
@@ -80,8 +78,8 @@ tr.enTete2TabQuad
 fond écru */
 tr.ligneTabQuad 
 {
-   background-color:green;
-   color:yellow;
+   background-color:#8F8F8F;
+   color:black;
    text-align:left;
 }
 
@@ -90,12 +88,12 @@ tr.ligneTabQuad
 /* Style des tableaux sans quadrillage : gris foncé épaisseur 1px, fond écru */
 table.tabNonQuadrille 
 {
-   background-color:green;
-   color:yellow;
-   border-bottom:1px solid green;
-   border-right:1px solid green;
-   border-left:1px solid green;
-   border-top:1px green;
+   background-color:#8F8F8F;
+   color:black;
+   border-bottom:1px solid black;
+   border-right:1px solid black;
+   border-left:1px solid black;
+   border-top:1px black;
 }
  
 /* Style pour les lignes d'en-tête des tableaux non quadrillés : fond avec 
@@ -103,11 +101,11 @@ nuances de jaune et trait bas pour séparer l'en-tête du corps du tableau */
 tr.enTeteTabNonQuad td
 {
   
-   background-color:green;
-   color:yellow;
+   background-color:#8F8F8F;
+   color:black;
    height:21px;
    text-align:center;
-   border-bottom:1px solid green;
+   border-bottom:1px solid black;
 } 
 
 /* Style pour les lignes (autres que les en-têtes) des tableaux non quadrillés : 
@@ -115,8 +113,8 @@ fond écru, hauteur plus importante et espacement de 3px entre la bordure gauche
 de chaque cellule et le texte */
 tr.ligneTabNonQuad td
 {
-   background-color:green;
-   color:yellow;
+   background-color:#8F8F8F;
+   color:black;
    text-align:left;
    height:28px;
    padding-left:3px;
@@ -127,8 +125,8 @@ tr.ligneTabNonQuad td
 /* Style pour les messages d'erreur affichés en bas de page (couleur : bleu) */
 .msgErreur
 {
-   background-color:green;
-   color:yellow;
+   background-color:#8F8F8F;
+   color:black;
    font-size:14px;
 }
 
@@ -136,8 +134,8 @@ tr.ligneTabNonQuad td
 (couleur : rouge de base) */
 .erreur
 {
-   background-color:green;
-   color:yellow;
+   background-color:#8F8F8F;
+   color:black;
 }
 
 /* STYLES POUR LES ATTRIBUTIONS */
@@ -145,8 +143,8 @@ tr.ligneTabNonQuad td
 /* Fond gris */
 td.absenceOffre
 {
-   background-color:green;
-   color:yellow;
+   background-color:#8F8F8F;
+   color:black;
    width:30px;
    text-align:center;
 }
@@ -154,7 +152,7 @@ td.absenceOffre
 /* Fond blanc */
 td.reserveSiLien
 {
-   background-color:green;
+   background-color:#8F8F8F;
    color:yellow;
    width:30px;
    text-align:center;
@@ -163,8 +161,8 @@ td.reserveSiLien
 /* Fond jaune */
 td.reserve
 {
-   background-color:green;
-   color:yellow;
+   background-color:#8F8F8F;
+   color:black;
    width:30px;
    text-align:center;
 }
@@ -172,8 +170,8 @@ td.reserve
 /* Fond vert */
 td.libre
 {
-   background-color:green;
-   color:yellow;
+   background-color:#8F8F8F;
+   color:black;
    width:30px;
    text-align:center;
 }
