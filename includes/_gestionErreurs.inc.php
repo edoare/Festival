@@ -12,6 +12,10 @@ function estChiffresOuEtLettres($valeur) {
     return preg_match('/[^a-zA-Z0-9]/', $valeur) != 1;
 }
 
+function estLettres($valeur) {
+    return preg_match('/[^a-zA-Z]/', $valeur) != 1;
+}
+
 function razErreurs() {
     unset($_REQUEST['erreurs']);
 }
@@ -28,9 +32,6 @@ function getErreurs() {
         $_REQUEST['erreurs'] = array();
     }
     return $_REQUEST['erreurs'];
-}
-function Startby0($tel) {
-    return substr($tel, 0, 1);
 }
 
 function nbErreurs() {

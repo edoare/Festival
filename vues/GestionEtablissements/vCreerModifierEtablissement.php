@@ -114,7 +114,7 @@ echo '
       </tr>
       <tr class="ligneTabNonQuad">
          <td> E-mail: </td>
-         <td><input type="text" value="' . $adresseElectronique . '" name=
+         <td><input type="email" value="' . $adresseElectronique . '" name=
          "adresseElectronique" size ="75" maxlength="70"></td>
       </tr>
       <tr class="ligneTabNonQuad">

@@ -16,13 +16,13 @@
 {
    /* Fond sable (c'est la couleur de fond de l'onglet ouvert) 
    Ce fond sera recouvert par un fond ocre pour les onglets fermés */
-   background-color:#FFDD88;
+   background-color:green;
    /* Couleur rouge */
-   color:#F50033;
+   color:yellow;
    float:left;
    margin:0px 0px 0px 0px;
    /* Bordure blanche */
-   border:solid 2px white;
+   border:solid 2px greenyellow;
    /* Logiquement, le pourcentage devrait être égal à 100/nombre d'onglets 
    mais les bordures prennent de la place ; il faut donc réduire à 18% 
    certains navigateurs n'acceptent pas les nombres réels donc on met
@@ -37,7 +37,7 @@
 { 
    /* Effacement du trait inférieur (pour cela, on le met de la même couleur que
    le fond de la page) */
-   border-bottom:solid 2px #FFDD88;
+   border-bottom:solid 2px green;
    width:20%;
 }
 
@@ -46,8 +46,8 @@
 { 
    /* Effacement du trait inférieur et du trait de gauche (pour cela, on les met 
    de la même couleur que le fond de la page) */
-   border-bottom:solid 2px #FFDD88;
-   border-left:solid 2px #FFDD88;
+   border-bottom:solid 2px green;
+   border-left:solid 2px green;
    width:20%;
 }
 
@@ -55,9 +55,9 @@
 .menus .ongletPrem 
 { 
    /* Fond ocre */
-   background-color:#FFCC50;
+   background-color:green;
    /* Couleur rouge */
-   color:#F50033;
+   color:Yellow;
    margin:0px 0px 0px 0px;
 }
 
@@ -65,9 +65,9 @@
 .menus .ongletPrem a 
 { 
    /* Fond ocre */
-   background-color:#FFCC50;
+   background-color:green;
    /* Couleur rouge */
-   color:#F50033;
+   color:yellow;
    /* Pas de soulignement du lien */
    text-decoration:none;
 }
@@ -76,22 +76,22 @@
 .menus .onglet 
 { 
    /* Fond ocre */
-   background-color:#FFCC50;
+   background-color:green;
    /* Couleur rouge */
-   color:#F50033;
+   color:yellow;
    margin:0px 0px 0px 0px;
    /* Effacement du trait de gauche (pour cela, on le met de la même couleur que 
    le fond de l'onglet) */
-   border-left:solid 2px #FFCC50;
+   border-left:solid 2px green;
 }
 
 /* Style du lien d'un onglet non ouvert cas autres onglets que le 1er */
 .menus .onglet a 
 { 
    /* Fond ocre */
-   background-color:#FFCC50;
+   background-color:green;
    /* Couleur rouge */
-   color:#F50033;
+   color:yellow;
    /* Pas de soulignement du lien */
    text-decoration:none; 
 }
