@@ -8,11 +8,14 @@
         <link href="css/cssOnglets.css" rel="stylesheet" type="text/css">
     </head>
     <body class='basePage'>
+      
+
         <!--  Tableau contenant le titre et les menus -->
         <table width="100%" cellpadding="0" cellspacing="0">
             <!-- Titre -->
             <tr> 
-                <td class="titre">Festival Folklores du Monde <br>
+                <td class="titre"><img style='position:static;' src="./images/note-de-musique.jpg.png" width="100px"/>Festival Folklores du Monde 
+                    <img style='position:static;' src="./images/note-de-musique.jpg.png" width="100px"/><br>
                     <span id="texteNiveau2" class="texteNiveau2">
                         H&eacute;bergement des groupes</span><br>&nbsp;
                 </td>
@@ -39,6 +42,6 @@
             <!-- Fin des menus -->
             <tr>
                 <td class="basePage">
-                    <br><center><br>
+            <br><center><br>
 
 
