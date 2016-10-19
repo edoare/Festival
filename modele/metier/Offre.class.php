@@ -1,18 +1,13 @@
 
 <?php
+namespace \modele\metier;
 
 class Offre{
-     
+    
     private $idEtab;
-    /**
-     * nom du groupe
-     * @var string
-     */
+    
     private $idTypeChambre;
-    /**
-     * nom du responsable du groupe
-     * @var string 
-     */
+    
     private $nombreChambre;
     
    
@@ -45,7 +40,7 @@ class Offre{
     }
 
     function setIdTypeCHambre($idTypeChambre) {
-        $this->idTypeChambre = $idTypeCHambre;
+        $this->idTypeChambre = $idTypeChambre;
     }
 
     
