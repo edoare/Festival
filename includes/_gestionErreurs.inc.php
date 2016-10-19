@@ -13,7 +13,7 @@ function estChiffresOuEtLettres($valeur) {
 }
 
 function estLettres($valeur) {
-    return preg_match('/[^a-zA-Z]/', $valeur) != 1;
+    return \preg_match('/[^a-zA-ZÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ_-\s]/', $valeur) != 1;
 }
 
 function razErreurs() {
