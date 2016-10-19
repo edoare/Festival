@@ -1,6 +1,6 @@
-
 <?php
-namespace \modele\metier;
+
+namespace modele\metier;
 
 class Offre{
     
