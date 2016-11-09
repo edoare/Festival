@@ -85,10 +85,10 @@ class AttributionDAO implements IDAO {
         }
         return $objetConstruit;
     }
-/*
+
     public static function getAllOfferingRooms() {
         $lesObjets = array();
-        $requete = "SELECT * FROM Etablissement 
+        $requete = "SELECT * FROM Attribution 
                 WHERE ID IN 
                    (SELECT DISTINCT ID
                     FROM Offre o
@@ -103,7 +103,6 @@ class AttributionDAO implements IDAO {
         }
         return $lesObjets;
     }
-*/
     
     public static function isAnExistingnbChambres($nbChambres) {
         $requete = "SELECT COUNT(*) FROM Attribution WHERE NBCHAMBRES=:nbChambres";
@@ -119,15 +118,15 @@ class AttributionDAO implements IDAO {
         // on vérifie la non existence d'un autre établissement (id!='$id') portant 
         // le même nom
         if ($estModeCreation) {
-            $requete = "SELECT COUNT(*) FROM Etablissement WHERE NOM=:nom";
+            $requete = "SELECT COUNT(*) FROM Attribution WHERE NBCHAMBRES=:nbChambres";
             $stmt = Bdd::getPdo()->prepare($requete);
-            $stmt->bindParam(':nom', $nom);
+            $stmt->bindParam(':nbChambres', $nbChambres);
             $stmt->execute();
         } else {
-            $requete = "SELECT COUNT(*) FROM Etablissement WHERE NOM=:nom AND ID<>:id";
+            $requete = "SELECT COUNT(*) FROM Attribution WHERE NBCHAMBRES=:nbChambres AND IDTYPECHAMBRE<>:idTypeChambre";
             $stmt = Bdd::getPdo()->prepare($requete);
-            $stmt->bindParam(':id', $id);
-            $stmt->bindParam(':nom', $nom);
+            $stmt->bindParam(':nbChambres', $nbChambres);
+            $stmt->bindParam(':idTypeChambre', $idTypeChambre);
             $stmt->execute();
         }
         return $stmt->fetchColumn(0);
