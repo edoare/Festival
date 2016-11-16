@@ -1,9 +1,18 @@
 <?php
 
 include("includes/_gestionErreurs.inc.php");
-include("includes/gestionDonnees/_connexion.inc.php");
-include("includes/gestionDonnees/_gestionBaseFonctionsCommunes.inc.php");
-include("includes/gestionDonnees/_gestionBaseFonctionsGestionAttributions.inc.php");
+//include("includes/gestionDonnees/_connexion.inc.php");
+//include("includes/gestionDonnees/_gestionBaseFonctionsCommunes.inc.php");
+//include("includes/gestionDonnees/_gestionBaseFonctionsGestionAttributions.inc.php");
+
+use modele\dao\AttributionDAO;
+use modele\metier\Attribution;
+use modele\dao\DaoOffre;
+use modele\dao\GroupeDAO;
+use modele\dao\Bdd;
+
+require_once __DIR__ . '/includes/autoload.php';
+Bdd::connecter();
 
 // 1ère étape (donc pas d'action choisie) : affichage du tableau des 
 // attributions en lecture seule
@@ -32,11 +41,24 @@ switch ($action) {
         break;
 
     case 'validerModifierAttrib':
-        $idEtab = $_REQUEST['idEtab'];
-        $idTypeChambre = $_REQUEST['idTypeChambre'];
-        $idGroupe = $_REQUEST['idGroupe'];
+        $id = array();
+        $id['Offre']['Etab'] = $_REQUEST['idEtab'];
+        $id['Offre']['TypeChambre'] = $_REQUEST['idTypeChambre'];
+        $id['Groupe'] = $_REQUEST['idGroupe'];
         $nbChambres = $_REQUEST['nbChambres'];
-        modifierAttribChamb($connexion, $idEtab, $idTypeChambre, $idGroupe, $nbChambres);
+        $uneOffre = DaoOffre::getOneById($id['Offre']);
+        $uneAttribution= new Attribution ($uneOffre,GroupeDAO::getOneById($id['Groupe']),$nbChambres);
+        $ok = AttributionDAO::isAnExistingId($id);
+        
+        if($nbChambres != 0){
+            if($ok){
+                AttributionDAO::update($id, $uneAttribution);
+            } else {
+                AttributionDAO::insert($uneAttribution);
+            }
+        } else {
+            AttributionDAO::delete($id);
+        }
         include("vues/AttributionChambres/vModifierAttributionChambres.php");
         break;
 }

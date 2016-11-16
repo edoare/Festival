@@ -1,5 +1,6 @@
 <?php
 use modele\dao\EtablissementDAO;
+use modele\dao\AttributionDAO;
 use modele\dao\Bdd;
 require_once __DIR__.'/../../includes/autoload.php';
 Bdd::connecter();
@@ -37,7 +38,7 @@ foreach ($lesEtablissements as $unEtablissement) {
 
     // S'il existe déjà des attributions pour l'établissement, il faudra
     // d'abord les supprimer avant de pouvoir supprimer l'établissement
-    if (!existeAttributionsEtab($connexion, $id)) {
+    if (!AttributionDAO::existeAttributionsEtab($id)) {
         echo "
             <td width='16%' align='center'> 
             <a href='cGestionEtablissements.php?action=demanderSupprimerEtab&id=$id'>

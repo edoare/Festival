@@ -4,8 +4,17 @@
  */
 
 include("includes/_gestionErreurs.inc.php");
-include("includes/gestionDonnees/_connexion.inc.php");
-include("includes/gestionDonnees/_gestionBaseFonctionsCommunes.inc.php");
+//include("includes/gestionDonnees/_connexion.inc.php");
+//include("includes/gestionDonnees/_gestionBaseFonctionsCommunes.inc.php");
+
+use modele\dao\DaoOffre;
+use modele\dao\Bdd;
+use modele\metier\Offre;
+use modele\dao\EtablissementDAO;
+use modele\dao\TypeChambreDAO;
+
+require_once __DIR__ . '/includes/autoload.php';
+Bdd::connecter();
 
 // 1ère étape (donc pas d'action choisie) : affichage du tableau des offres en 
 // lecture seule
@@ -37,12 +46,25 @@ switch ($action) {
             // attributions déjà effectuées pour cet établissement et ce type de
             // chambre, la modification n'est pas effectuée
             $entier = estEntier($nbChambres[$i]);
-            $modifCorrecte = estModifOffreCorrecte($connexion, $idEtab, $idTypeChambre[$i], $nbChambres[$i]);
+            $modifCorrecte = DaoOffre::estModifOffreCorrecte($idEtab, $idTypeChambre[$i], $nbChambres[$i]);
             if (!$entier || !$modifCorrecte) {
                 $err = true;
             } else {
-                modifierOffreHebergement
-                        ($connexion, $idEtab, $idTypeChambre[$i], $nbChambres[$i]);
+                $objet = new Offre(EtablissementDAO::getOneById($idEtab), TypeChambreDAO::getOneById($idTypeChambre[$i]), $nbChambres[$i]);
+                $idObjet = array();
+                $idObjet['Etab'] = $idEtab;
+                $idObjet['TypeChambre'] = $idTypeChambre[$i];
+                $ok = DaoOffre::isAnExistingId($idObjet);
+                
+                if($nbChambres[$i] != 0){
+                    if($ok){
+                        DaoOffre::update($idObjet, $objet);
+                    } else {
+                        DaoOffre::insert($objet);
+                    }
+                } else {
+                    DaoOffre::delete($idObjet);
+                }
             }
         }
         if ($err) {

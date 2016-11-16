@@ -1,6 +1,7 @@
 <?php
 use \modele\dao\TypeChambreDAO;
 use modele\dao\EtablissementDAO;
+use modele\dao\DaoOffre;
 use modele\dao\Bdd;
 require_once __DIR__ . '/../../includes/autoload.php';
 Bdd::connecter();
@@ -28,7 +29,7 @@ if ($nbEtab != 0 && $nbTypesChambres != 0) {
         // MODIFICATION
         echo "<strong>$nom</strong><br>
       <a href='cOffreHebergement.php?action=demanderModifierOffre&idEtab=$idEtab'>
-      Modifier</a>
+      <button type=button>Modifier</button></a>
    
       <table width='45%' cellspacing='0' cellpadding='0' class='tabQuadrille'>";
 
@@ -51,7 +52,7 @@ if ($nbEtab != 0 && $nbTypesChambres != 0) {
                <td>".$unTypeChambre->getLibelle()."</td>";
             // On récupère le nombre de chambres offertes pour l'établissement 
             // et le type de chambre actuellement traités
-            $nbOffre = obtenirNbOffre($connexion, $idEtab, $unTypeChambre->getId());
+            $nbOffre = DaoOffre::obtenirNbOffre($idEtab, $unTypeChambre->getId());
             echo "
                <td>$nbOffre</td>
             </tr>";

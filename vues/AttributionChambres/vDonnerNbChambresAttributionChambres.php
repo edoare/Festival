@@ -31,7 +31,7 @@ echo "<br>";
 echo "<input type='submit' value='Valider' name='valider'>&nbsp;&nbsp;&nbsp;
    &nbsp;&nbsp;<input type='reset' value='Annuler' name='Annuler'>
    <br><br>
-   <a href='cAttributionChambres.php?action=demanderModifierAttrib'>Retour</a>
+   <a href='cAttributionChambres.php?action=demanderModifierAttrib'><button type=button>Retour</button></a>
 </form>";
 
 include("includes/_fin.inc.php");

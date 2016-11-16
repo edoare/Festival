@@ -2,6 +2,7 @@
 use \modele\dao\TypeChambreDAO;
 use modele\dao\GroupeDAO;
 use modele\dao\EtablissementDAO;
+use modele\dao\AttributionDAO;
 use modele\dao\Bdd;
 require_once __DIR__ . '/../../includes/autoload.php';
 Bdd::connecter();
@@ -16,7 +17,7 @@ $nbEtabOffrantChambres = count($lesEtabOffrantChambres);
 if ($nbEtabOffrantChambres != 0) {
     echo "
    <center> <a href='cAttributionChambres.php?action=demanderModifierAttrib'>
-   Effectuer ou modifier les attributions</a> <br> <br>";
+   <button type=button>Effectuer ou modifier les attributions</button></a> <br> <br>";
 
     // POUR CHAQUE ÉTABLISSEMENT : AFFICHAGE D'UN TABLEAU COMPORTANT 2 LIGNES 
     // D'EN-TÊTE (LIGNE NOM ET LIGNE DISPONIBILITÉS) ET LE DÉTAIL DES ATTRIBUTIONS
@@ -56,7 +57,7 @@ if ($nbEtabOffrantChambres != 0) {
         foreach ($lesTypesChambres as $unTypeChambre) {
              // On recherche les disponibilités pour l'établissement et le type
             // de chambre en question
-            $nbChDispo = obtenirNbDispo($connexion, $idEtab, $unTypeChambre->getId());
+            $nbChDispo = AttributionDAO::obtenirNbDispo($idEtab, $unTypeChambre->getId());
             echo "<td><center>".$unTypeChambre->getLibelle()."<br>$nbChDispo</center></td>";
         }
         echo "
@@ -79,7 +80,7 @@ if ($nbEtabOffrantChambres != 0) {
             foreach ($lesTypesChambres as $unTypeChambre) {
                 // On recherche si des chambres du type en question ont 
                 // déjà été attribuées à ce groupe dans l'établissement
-                $nbOccupGroupe = obtenirNbOccupGroupe($connexion, $idEtab, $unTypeChambre->getId(), $idGroupe);
+                $nbOccupGroupe = AttributionDAO::obtenirNbOccupGroupe($idEtab, $unTypeChambre->getId(), $idGroupe);
                 echo "
                   <td width='$pourcCol%'><center>$nbOccupGroupe</center></td>";
             } // Fin de la boucle sur les types de chambres
